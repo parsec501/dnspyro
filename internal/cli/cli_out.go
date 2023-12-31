@@ -57,7 +57,7 @@ func PrintUsage() {
 	os.Exit(1)
 }
 
-func (r *Resolved) PrintResults() {
+func (r *Resolved) PrintResults(checkTxt bool) {
 	for _, a := range r.a {
 		Println("A/AAAA", a)
 	}
@@ -74,7 +74,9 @@ func (r *Resolved) PrintResults() {
 		for _, txt := range r.txt {
 			Println("TXT", txt)
 		}
-	} else {
+	}
+
+	if !checkTxt {
 		fmt.Println("\033[38;5;8mSkipping TXT records, use -txt to enable\033[0m")
 	}
 }

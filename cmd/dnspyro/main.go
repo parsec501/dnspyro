@@ -21,7 +21,7 @@ func main() {
 
 	doneLoading <- true
 
-	resolvedStruct.PrintResults()
+	resolvedStruct.PrintResults(userConfig.GetTxtSetting())
 
 	if len(errList) > 0 {
 		for _, err := range errList {
